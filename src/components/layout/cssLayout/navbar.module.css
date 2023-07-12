@@ -1,0 +1,27 @@
+.navbar{
+    width: 25%;
+    height: 100%;
+}
+
+.list{
+    list-style: none;
+    margin-right: 20px;
+    user-select: none;
+}
+
+.list a{
+    text-decoration: none;
+    color: black;
+}
+
+.list a li{
+    padding: 1em;
+    border: 1px solid #a3a3a3;
+    cursor: pointer;
+    transition: all .5s;
+    font-weight: 700;
+}
+
+.list a li:hover{
+    color:#3da63f ;
+}
