@@ -13,6 +13,9 @@ import ErrorPage from './routes/errorPage';
 import Graphic from './routes/graphic';
 import Table from './routes/table';
 import Download from './routes/download';
+import Dashboard from './routes/dashboard';
+import Login from './routes/login'
+import Register from './routes/register'
 
 const router = createBrowserRouter([
   {
@@ -25,15 +28,29 @@ const router = createBrowserRouter([
         element:<Home />
       },
       {
-        path:"/graphic",
+        path:"/login",
+        element:<Login />
+      },
+      {
+        path:"/register",
+        element:<Register />
+      }
+    ]
+  },
+  {
+    path:"/dashboard",
+    element:<Dashboard />,
+    children:[
+      {
+        path:"/dashboard/graphic",
         element:<Graphic />
       },
       {
-        path:"/table",
+        path:"/dashboard/table",
         element:<Table />
       },
       {
-        path:"/download",
+        path:"/dashboard/download",
         element:<Download />
       }
     ]

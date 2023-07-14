@@ -4,24 +4,26 @@
 }
 
 .list{
+    width: 100%;
     list-style: none;
     margin-right: 20px;
     user-select: none;
 }
 
-.list a{
-    text-decoration: none;
-    color: black;
+.infoUser{
+    width: 100%;
+    border-right: 1px solid #a3a3a3;
+    border-bottom: 1px solid #a3a3a3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
-.list a li{
-    padding: 1em;
-    border: 1px solid #a3a3a3;
-    cursor: pointer;
-    transition: all .5s;
-    font-weight: 700;
-}
-
-.list a li:hover{
-    color:#3da63f ;
+.infoUser span{
+    width: 150px;
+    height: 150px;
+    background-color: #1f1f1f;
+    border-radius: 50%;
+    margin: .5em 0;
 }

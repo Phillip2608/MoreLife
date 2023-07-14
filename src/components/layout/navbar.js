@@ -1,26 +1,28 @@
 import styles from './cssLayout/navbar.module.css'
-import { Link } from 'react-router-dom'
+
+//ICONS
+import {FaSignal} from 'react-icons/fa'
+import {FaTable} from 'react-icons/fa'
+import {FaDownload} from 'react-icons/fa'
+import {FaDoorOpen} from 'react-icons/fa'
+import { FaInfo } from 'react-icons/fa'
+
+//layout components
+import Navlink from './navlink'
 
 function Navbar() {
     return (
         <nav className={styles.navbar}>
             <ul className={styles.list}>
-                <Link to="/graphic">
-                    <li>
-                        Gráfico
-                    </li>
-                </Link>
-                <Link to="/table">
-                    <li>
-                        Tabela
-                    </li>
-                </Link>
-                <Link to="/download">
-                    <li>
-                        Download
-                    </li>
-                </Link>
-
+                <div className={styles.infoUser}>
+                    <span></span>
+                    <p>User tal</p>
+                </div>
+                <Navlink to="/dashboard/graphic" icon={<FaSignal />} text="Gráfico"/>
+                <Navlink to="/dashboard/table" icon={<FaTable />} text="Tabela"/>
+                <Navlink to="/dashboard/download" icon={<FaDownload />} text="Download"/>
+                <Navlink to="" icon={<FaInfo/>} text="Informações"/>
+                <Navlink to="" icon={<FaDoorOpen/>} text="Sair"/>
             </ul>
         </nav>
 

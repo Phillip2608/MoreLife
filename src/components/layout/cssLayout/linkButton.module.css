@@ -1,0 +1,32 @@
+.button{
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 700;
+    padding: .3em 1em;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.2);
+    transition: all .5s;
+    margin-right: 15px;
+}
+
+.button:hover{
+    box-shadow: none;
+}
+
+.login{
+    background-color: #c2ac21;
+    color: #fff;
+}
+
+.login:hover{
+    background-color: #d6be22;
+}
+
+.register{
+    background-color: #244e9c;
+    color: #fff;
+}
+
+.register:hover{
+    background-color: #2258bd;
+}
