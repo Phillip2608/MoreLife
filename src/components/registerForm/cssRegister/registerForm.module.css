@@ -1,0 +1,26 @@
+.registerContainer{
+    width: 650px;
+    padding: 2.5em;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 15px;
+}
+
+.registerContainer form{
+    width: 100%;
+    display: flex;
+}
+
+.registerContainer .formDiv{
+    padding: 1em;
+    width: 100%;
+}
+
+.linkContainer{
+    margin-top: 1em;
+    text-align: center;
+}
+
+.linkContainer a{
+    text-decoration: none;
+    font-size: 18px;
+}
