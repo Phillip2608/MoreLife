@@ -1,15 +1,28 @@
 import styles from './cssLogin/loginForm.module.css'
 
+//Import react-doms
+import { useLocation } from 'react-router-dom'
+
 //Import Components
 import Input from '../form/input'
 import Checkbox from '../form/checkbox'
 import ButtonForm from '../form/buttonForm'
+import Message from '../layout/message'
 
 import { Link } from 'react-router-dom'
 
 function LoginForm() {
+    const location = useLocation()
+    let message = ''
+    if(location.state){
+        message = location.state
+    }
+
     return (
         <div className={styles.formContainer}>
+            {message && (
+                <Message msg={message} type="success"/>
+            )}
             <form action="">
                 <Input
                     type="text"

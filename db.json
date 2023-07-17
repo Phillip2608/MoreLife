@@ -12,6 +12,32 @@
       "user_pass": "A21w05c7",
       "user_confPass": "A21w05c7",
       "id": 1
+    },
+    {
+      "user_name": "Andreas",
+      "user_sbname": "William",
+      "user_age": "19",
+      "user_sexo": {
+        "id": "1",
+        "name": "Masculino"
+      },
+      "user_email": "andreas21@gmail.com",
+      "user_pass": "1w3r5y7i",
+      "user_confPass": "1w3r5y7i",
+      "id": 2
+    },
+    {
+      "user_name": "Fernando",
+      "user_sbname": "Sobraz",
+      "user_age": "23",
+      "user_sexo": {
+        "id": "1",
+        "name": "Masculino"
+      },
+      "user_email": "fernandinho21@gmail.com",
+      "user_pass": "A21w05c7",
+      "user_confPass": "A21w05c7",
+      "id": 3
     }
   ],
   "sexos": [

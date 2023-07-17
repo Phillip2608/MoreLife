@@ -1,10 +1,8 @@
 import styles from './cssRoutes/login.module.css'
 
 //Import Components
-import Container from "../components/layout/container"
+import Container from '../components/layout/container'
 import LoginForm from '../components/loginForm/loginForm'
-
-
 function Login() {
     return (
         <Container customClass="center">

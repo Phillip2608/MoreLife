@@ -16,7 +16,7 @@ function Register() {
         })
             .then(resp => resp.json())
             .then((data) => {
-                return navigate("/login")
+                return navigate("/login", {state: 'Usuário cadastrado com sucesso!'})
             })
             .catch(err => console.log(err))
     }

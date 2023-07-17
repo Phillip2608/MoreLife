@@ -108,7 +108,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
                         handleOnChange={handleChange}
                         value={user.user_confPass ? user.user_confPass : ''}
                     />
-                    <div>
+                    <div className={styles.btnContainer}>
                         <ButtonForm
                             text={btnText}
                         />
