@@ -16,6 +16,8 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
     const [sexo, setSexo] = useState([])
     const [user, setUser] = useState(userData || [])
     const [message, setMessage] = useState("")
+    const [allUsers, setAllUsers] = useState([])
+    let email = ""
 
     const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     const regexPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/;
@@ -34,43 +36,66 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
             .catch(err => console.log(err))
     }, [])
 
-    function validateForm(user){
-        if(user.length === 0){
+    useEffect(() => {
+        fetch("http://localhost:5000/users", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((resp) => resp.json())
+            .then((data) => {
+                setAllUsers(data)
+            })
+            .catch(err => console.log(err))
+    }, [])
+
+    function validateForm(user) {
+        if (user.length === 0) {
             setMessage('É necessário preencher todos os campos!')
             return false
         }
-        if(
-            user.user_name === '' ||
-            user.user_sbname === '' ||
+        if (user.user_name === '' || 
+            user.user_sbname === '' || 
             user.user_age === '' ||
             user.user_email === '' ||
             user.user_pass === '' ||
-            user.user_confPass === '' 
-        ){
+            user.user_confPass === ''
+        ) {
             setMessage('É necessário preencher todos os campos!')
             return false
         }
-        if(parseInt(user.user_age) < 5){
+        if (parseInt(user.user_age) < 5) {
             setMessage('A idade mínima é de 5 anos!')
             return false
         }
-        if(regexEmail.test(user.user_email) == false){
+        if (regexEmail.test(user.user_email) === false) {
             setMessage('O email deve existir!')
             return false
         }
-        if(regexPass.test(user.user_pass) == false){
+        if (regexPass.test(user.user_pass) === false) {
             setMessage('A senha deve possuir no mínimo 8 caracteres, 1 número, uma letraminúscula euma letra maiúscula!')
             return false
         }
-        if(user.user_pass != user.user_confPass ){
+        if (user.user_pass !== user.user_confPass) {
             setMessage('As senhas devem se coincidir!')
             return false
         }
-        if(user.user_sexo === undefined || user.user_sexo.id === 'Selecione uma opção'){
+        if (user.user_sexo === undefined || user.user_sexo.id === 'Selecione uma opção') {
             setMessage('É necessário selecionar uma das opções!')
             return false
         }
-        
+
+        allUsers.map(allUser =>{
+            if(allUser.user_email == user.user_email){
+                email = allUser.user_email
+            }
+        })
+        if(email === user.user_email){
+            setMessage('Já possuímos uma conta com este email!')
+            return false
+        }
+
         setMessage('')
         return handleSubmit(user)
     }
@@ -82,7 +107,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value })
-        if(e.target.value === ''){
+        if (e.target.value === '') {
             setMessage('É necessário preencher todos os campos!')
             return false
         }
@@ -98,7 +123,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
     }
     return (
         <div className={styles.registerContainer}>
-            {message !== "" && <Message msg={message} type="error"/>}
+            {message !== "" && <Message msg={message} type="error" />}
             <form onSubmit={submit}>
                 <div className={styles.formDiv}>
                     <Input
@@ -125,7 +150,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
                         nameInput="user_age"
                         placeholder="Digite sua idade"
                         handleOnChange={handleChange}
-                        customClass={user.user_age === '' && "error" || parseInt(user.user_age) < 5 && "error"}
+                        customClass={(user.user_age === '' && "error") || (parseInt(user.user_age) < 5 && "error")}
                         value={user.user_age ? user.user_age : ''}
                     />
                     <Select
