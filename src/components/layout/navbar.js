@@ -16,13 +16,14 @@ function Navbar() {
             <ul className={styles.list}>
                 <div className={styles.infoUser}>
                     <span></span>
-                    <p>User tal</p>
+                    <p>{localStorage.getItem("name")}</p>
                 </div>
                 <Navlink to="/dashboard/graphic" icon={<FaSignal />} text="Gráfico"/>
                 <Navlink to="/dashboard/table" icon={<FaTable />} text="Tabela"/>
                 <Navlink to="/dashboard/download" icon={<FaDownload />} text="Download"/>
                 <Navlink to="" icon={<FaInfo/>} text="Informações"/>
                 <Navlink to="" icon={<FaDoorOpen/>} text="Sair"/>
+                <p>v.beta</p>
             </ul>
         </nav>
 
