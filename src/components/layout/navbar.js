@@ -11,6 +11,8 @@ import { FaInfo } from 'react-icons/fa'
 import Navlink from './navlink'
 
 function Navbar() {
+    const username = localStorage.getItem("name")
+
     return (
         <nav className={styles.navbar}>
             <ul className={styles.list}>
@@ -18,9 +20,9 @@ function Navbar() {
                     <span></span>
                     <p>{localStorage.getItem("name")}</p>
                 </div>
-                <Navlink to="/dashboard/graphic" icon={<FaSignal />} text="Gráfico"/>
-                <Navlink to="/dashboard/table" icon={<FaTable />} text="Tabela"/>
-                <Navlink to="/dashboard/download" icon={<FaDownload />} text="Download"/>
+                <Navlink to={`/dashboard/${username != '' && username}/graphic`} icon={<FaSignal />} text="Gráfico"/>
+                <Navlink to={`/dashboard/${username != '' && username}/table`} icon={<FaTable />} text="Tabela"/>
+                <Navlink to={`/dashboard/${username != '' && username}/download`} icon={<FaDownload />} text="Download"/>
                 <Navlink to="" icon={<FaInfo/>} text="Informações"/>
                 <Navlink to="" icon={<FaDoorOpen/>} text="Sair"/>
                 <p>v.beta</p>

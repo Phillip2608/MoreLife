@@ -7,8 +7,6 @@ import reportWebVitals from './reportWebVitals';
 //Importando react-routers
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import {useState, useEffect} from 'react'
-
 //Import routes
 import Home from './routes/home';
 import ErrorPage from './routes/errorPage';
