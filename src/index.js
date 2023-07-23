@@ -7,6 +7,8 @@ import reportWebVitals from './reportWebVitals';
 //Importando react-routers
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+import {useState, useEffect} from 'react'
+
 //Import routes
 import Home from './routes/home';
 import ErrorPage from './routes/errorPage';
@@ -16,6 +18,8 @@ import Download from './routes/download';
 import Dashboard from './routes/dashboard';
 import Login from './routes/login'
 import Register from './routes/register'
+
+const username = localStorage.getItem("name")
 
 const router = createBrowserRouter([
   {
@@ -38,19 +42,19 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:"/dashboard",
+    path:`/dashboard/${username != '' && username}`,
     element:<Dashboard />,
     children:[
       {
-        path:"/dashboard/graphic",
+        path:`/dashboard/${username != '' && username}/graphic`,
         element:<Graphic />
       },
       {
-        path:"/dashboard/table",
+        path:`/dashboard/${username != '' && username}/table`,
         element:<Table />
       },
       {
-        path:"/dashboard/download",
+        path:`/dashboard/${username != '' && username}/download`,
         element:<Download />
       }
     ]
