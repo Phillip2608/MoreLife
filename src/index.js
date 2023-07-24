@@ -40,19 +40,19 @@ const router = createBrowserRouter([
     ]
   },
   {
-    path:`/dashboard/${username != '' && username}`,
+    path:`/dashboard/${username !== '' && username}`,
     element:<Dashboard />,
     children:[
       {
-        path:`/dashboard/${username != '' && username}/graphic`,
+        path:`/dashboard/${username !== '' && username}/graphic`,
         element:<Graphic />
       },
       {
-        path:`/dashboard/${username != '' && username}/table`,
+        path:`/dashboard/${username !== '' && username}/table`,
         element:<Table />
       },
       {
-        path:`/dashboard/${username != '' && username}/download`,
+        path:`/dashboard/${username !== '' && username}/download`,
         element:<Download />
       }
     ]

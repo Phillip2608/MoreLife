@@ -7,7 +7,6 @@ import { useState, useEffect } from 'react'
 
 //Import Components
 import Input from '../form/input'
-import Checkbox from '../form/checkbox'
 import ButtonForm from '../form/buttonForm'
 import Message from '../layout/message'
 

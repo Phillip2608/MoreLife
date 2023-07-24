@@ -38,6 +38,19 @@
       "user_pass": "A21w05c7",
       "user_confPass": "A21w05c7",
       "id": 3
+    },
+    {
+      "user_name": "Luiz",
+      "user_sbname": "Felipe",
+      "user_age": "21",
+      "user_sexo": {
+        "id": "1",
+        "name": "Masculino"
+      },
+      "user_email": "luizfelipe@gmail.com",
+      "user_pass": "A21w05c7",
+      "user_confPass": "A21w05c7",
+      "id": 4
     }
   ],
   "sexos": [

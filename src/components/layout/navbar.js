@@ -10,8 +10,17 @@ import { FaInfo } from 'react-icons/fa'
 //layout components
 import Navlink from './navlink'
 
+import {useNavigate} from 'react-router-dom'
+
 function Navbar() {
     const username = localStorage.getItem("name")
+    const navigate = useNavigate()
+
+    function deleteLocal() {
+        localStorage.clear()
+
+        return navigate("/login")
+    }
 
     return (
         <nav className={styles.navbar}>
@@ -20,11 +29,11 @@ function Navbar() {
                     <span></span>
                     <p>{localStorage.getItem("name")}</p>
                 </div>
-                <Navlink to={`/dashboard/${username != '' && username}/graphic`} icon={<FaSignal />} text="Gráfico"/>
-                <Navlink to={`/dashboard/${username != '' && username}/table`} icon={<FaTable />} text="Tabela"/>
-                <Navlink to={`/dashboard/${username != '' && username}/download`} icon={<FaDownload />} text="Download"/>
+                <Navlink to={`/dashboard/${username !== '' && username}/graphic`} icon={<FaSignal />} text="Gráfico"/>
+                <Navlink to={`/dashboard/${username !== '' && username}/table`} icon={<FaTable />} text="Tabela"/>
+                <Navlink to={`/dashboard/${username !== '' && username}/download`} icon={<FaDownload />} text="Download"/>
                 <Navlink to="" icon={<FaInfo/>} text="Informações"/>
-                <Navlink to="" icon={<FaDoorOpen/>} text="Sair"/>
+                <Navlink icon={<FaDoorOpen/>} text="Sair" handleOnClick={deleteLocal}/>
                 <p>v.beta</p>
             </ul>
         </nav>

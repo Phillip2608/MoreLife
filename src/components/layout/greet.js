@@ -18,7 +18,6 @@ function Greet(){
         <div className={styles.greetContainer}>
             <h2>{message}</h2>
         </div>
-        
     )
 }
 
