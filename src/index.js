@@ -16,6 +16,7 @@ import Download from './routes/download';
 import Dashboard from './routes/dashboard';
 import Login from './routes/login'
 import Register from './routes/register'
+import Info from './routes/info'
 
 const username = localStorage.getItem("name")
 
@@ -50,6 +51,10 @@ const router = createBrowserRouter([
       {
         path:`/dashboard/${username !== '' && username}/table`,
         element:<Table />
+      },
+      {
+        path:`/dashboard/${username !== '' && username}/info`,
+        element:<Info />
       },
       {
         path:`/dashboard/${username !== '' && username}/download`,

@@ -32,7 +32,7 @@ function Navbar() {
                 <Navlink to={`/dashboard/${username !== '' && username}/graphic`} icon={<FaSignal />} text="Gráfico"/>
                 <Navlink to={`/dashboard/${username !== '' && username}/table`} icon={<FaTable />} text="Tabela"/>
                 <Navlink to={`/dashboard/${username !== '' && username}/download`} icon={<FaDownload />} text="Download"/>
-                <Navlink to="" icon={<FaInfo/>} text="Informações"/>
+                <Navlink to={`/dashboard/${username !== '' && username}/info`} icon={<FaInfo/>} text="Informações"/>
                 <Navlink icon={<FaDoorOpen/>} text="Sair" handleOnClick={deleteLocal}/>
                 <p>v.beta</p>
             </ul>

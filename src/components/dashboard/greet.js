@@ -1,4 +1,4 @@
-import styles from './cssLayout/greet.module.css'
+import styles from './cssDashboard/greet.module.css'
 
 function Greet(){
     const date = Date()

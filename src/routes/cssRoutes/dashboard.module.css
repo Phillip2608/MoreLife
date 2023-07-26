@@ -1,8 +1,13 @@
-.dashboard{
+.dashboardContainer{
     width: 75%;
-    height: 80vh;
+    height: 525px;
     border-radius: 20px;
     box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, .2);
     background-color: aliceblue;
     display: flex;
+}
+
+.dashboard{
+    width: 100%;
+    padding: 20px;
 }

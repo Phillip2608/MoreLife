@@ -31,9 +31,9 @@ function Login() {
                 setLocalStorage("name", allUser.user_name)
                 setLocalStorage("sbName", allUser.user_sbname)
                 setLocalStorage("age", allUser.user_age)
-                setLocalStorage("sexo", allUser.user_sexo.name)
                 setLocalStorage("email", allUser.user_email)
-                setLocalStorage("pass", allUser.user_pass)
+                setLocalStorage("id", allUser.id)
+                setLocalStorage("idSexo", allUser.user_sexo.id)
                 
                 return navigate(`/dashboard/${allUser.user_name}`)
             }
