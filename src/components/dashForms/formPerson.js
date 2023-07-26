@@ -5,7 +5,7 @@ import Input from '../form/input'
 import Select from '../form/select'
 
 function FormPerson({handleSubmit, dataUser, txtBtn}){
-    const [user, setUser] = useState(dataUser || [])
+    const [user, setUser] = useState([])
     const [sexo, setSexo] = useState([])
 
     useEffect(() => {
@@ -22,11 +22,14 @@ function FormPerson({handleSubmit, dataUser, txtBtn}){
             .catch(err => console.log(err))
     }, [])
 
+    
+
     function OnChange(e){
         setUser({ ...user, [e.target.name]: e.target.value })
         if (e.target.value === '') {
             return false
         }
+        console.log(user)
     }
 
     function handleSexo(e) {

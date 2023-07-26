@@ -87,7 +87,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
         }
 
         allUsers.map(allUser =>{
-            if(allUser.user_email == user.user_email){
+            if(allUser.user_email === user.user_email){
                 email = allUser.user_email
             }
         })
