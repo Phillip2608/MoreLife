@@ -1,12 +1,16 @@
+import styles from './cssForms/forms.module.css'
+
 import {useState, useEffect} from 'react'
 
 import ButtonForm from '../form/buttonForm'
 import Input from '../form/input'
 import Select from '../form/select'
+import Message from '../layout/message'
 
-function FormPerson({handleSubmit, dataUser, txtBtn}){
+function FormPerson({handleSubmit, txtBtn}){
     const [user, setUser] = useState([])
     const [sexo, setSexo] = useState([])
+    const [type, setType] = useState("")
     const [message, setMessage] = useState("")
     const id = localStorage.getItem("id")
 
@@ -40,8 +44,10 @@ function FormPerson({handleSubmit, dataUser, txtBtn}){
     }, [])
 
     function validateForm(user) {
+        setMessage('')
         if (user.length === 0) {
             setMessage('É necessário preencher todos os campos!')
+            setType('error')
             return false
         }
         if (user.user_name === '' || 
@@ -49,29 +55,35 @@ function FormPerson({handleSubmit, dataUser, txtBtn}){
             user.user_age === ''
         ) {
             setMessage('É necessário preencher todos os campos!')
+            setType('error')
             return false
         }
         if (parseInt(user.user_age) < 5) {
             setMessage('A idade mínima é de 5 anos!')
+            setType('error')
             return false
         }
 
         if (user.user_sexo === undefined || user.user_sexo.id === 'Selecione uma opção') {
             setMessage('É necessário selecionar uma das opções!')
+            setType('error')
             return false
         }
 
-        setMessage('')
+        setMessage('Atualização feita com sucesso!')
+        setType('success')
         return handleSubmit(user)
     }
     
 
     function OnChange(e){
         setUser({ ...user, [e.target.name]: e.target.value })
+        setMessage('')
         if (e.target.value === '') {
+            setMessage('É necessário preencher todos os campos!')
+            setType('error')
             return false
         }
-        console.log(user)
     }
 
     function handleSexo(e) {
@@ -89,8 +101,9 @@ function FormPerson({handleSubmit, dataUser, txtBtn}){
     }
 
     return (
-        <div>
+        <div className={styles.personContainer}>
             <h2>Dados Pessoais</h2>
+            {message && <Message msg={message} type={type} />}
             <form onSubmit={submit}>
                 <Input
                     type="text"
@@ -123,8 +136,9 @@ function FormPerson({handleSubmit, dataUser, txtBtn}){
                     value={user?.user_sexo?.id}
                     handleOnChange={handleSexo}
                 />
-
-                <ButtonForm text={txtBtn}/>
+                <div className={styles.btnContainer}>
+                    <ButtonForm text={txtBtn}/>
+                </div>
             </form>
         </div>
     )

@@ -28,8 +28,6 @@ function Login() {
             if(allUser.user_email === user.email && allUser.user_pass === user.pass){
                 setLocalStorage("name", allUser.user_name)
                 setLocalStorage("sbName", allUser.user_sbname)
-                setLocalStorage("age", allUser.user_age)
-                setLocalStorage("email", allUser.user_email)
                 setLocalStorage("id", allUser.id)
                 
                 return navigate(`/dashboard/${allUser.user_name}`)
