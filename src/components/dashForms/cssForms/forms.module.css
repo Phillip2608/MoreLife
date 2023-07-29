@@ -1,13 +1,13 @@
-.personContainer{
+.formContainer{
     width: 30%;
 }
 
-.personContainer h2{
+.formContainer h2{
     font-weight: 700;
     border-bottom: 1px solid #d6be22;
     margin-bottom: 15px;
 }
 
-.personContainer .btnContainer{
+.formContainer .btnContainer{
     margin-top: 20px;
 }

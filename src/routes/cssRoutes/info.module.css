@@ -1,6 +1,25 @@
 .infoContainer{
     width: 100%;
+}
+
+.forms{
     display: flex;
     justify-content: space-between;
     align-items: start;
+}
+
+.titleContainer{
+    margin-top: 15px;
+}
+
+.titleContainer h2{
+    font-weight: 700;
+}
+
+.responContainer{
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }

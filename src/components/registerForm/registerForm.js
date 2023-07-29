@@ -74,7 +74,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
             return false
         }
         if (regexPass.test(user.user_pass) === false) {
-            setMessage('A senha deve possuir no mínimo 8 caracteres, 1 número, uma letraminúscula euma letra maiúscula!')
+            setMessage('A senha deve possuir no mínimo 8 caracteres, 1 número, uma letra minúscula e uma letra maiúscula!')
             return false
         }
         if (user.user_pass !== user.user_confPass) {

@@ -1,0 +1,26 @@
+.cardRespon{
+    width: 30%;
+    border: 1px solid #2f2f2f;
+    border-radius: 5px;
+}
+
+.cardRespon h2{
+    padding: 10px;
+    background-color: #c2ac21;
+    color: #fff;
+    font-weight: 700;
+}
+
+.cardRespon p{
+    font-size: 18px;
+    padding: 10px;
+    margin-bottom: 5px;
+}
+
+.cardRespon p span{
+    padding: 5px;
+    background-color: #244e9c;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+}

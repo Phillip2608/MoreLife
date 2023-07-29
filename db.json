@@ -53,7 +53,40 @@
       "id": 4
     }
   ],
-  "responsaveis": [],
+  "responsaveis": [
+    {
+      "name": "Alberto ferraz",
+      "age": "34",
+      "email": "arknasveia15@gmail.com",
+      "cell": "13991091659",
+      "id_user": 1,
+      "id": 1
+    },
+    {
+      "name": "Anaiz",
+      "age": "19",
+      "email": "parklunasoojeon93@gmail.com",
+      "cell": "13991091659",
+      "id_user": 1,
+      "id": 2
+    },
+    {
+      "name": "Luiz Pips",
+      "age": "21",
+      "email": "luizlindo2416@gmail.com",
+      "cell": "13991091659",
+      "id_user": 2,
+      "id": 3
+    },
+    {
+      "name": "Carlos",
+      "age": "21",
+      "email": "luninha123@gmail.com",
+      "cell": "13991091659",
+      "id_user": 1,
+      "id": 4
+    }
+  ],
   "sexos": [
     {
       "id": 1,

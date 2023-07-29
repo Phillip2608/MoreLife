@@ -7,27 +7,15 @@ import Input from '../form/input'
 import Select from '../form/select'
 import Message from '../layout/message'
 
-function FormPerson({handleSubmit, txtBtn}){
-    const [user, setUser] = useState([])
+function FormPerson({handleSubmit, txtBtn, dataUser}){
+    const [user, setUser] = useState({})
     const [sexo, setSexo] = useState([])
     const [type, setType] = useState("")
     const [message, setMessage] = useState("")
-    const id = localStorage.getItem("id")
 
-    useEffect(() =>{
-        fetch(`http://localhost:5000/users/${id}`, {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setUser(data)
-            })
-            .catch(err => console.log(err))
-    },[id])
-
+    useEffect(() => {
+        setUser(dataUser)
+    }, [dataUser])
 
     useEffect(() => {
         fetch("http://localhost:5000/sexos", {
@@ -41,15 +29,12 @@ function FormPerson({handleSubmit, txtBtn}){
                 setSexo(data)
             })
             .catch(err => console.log(err))
+        
+        
     }, [])
 
     function validateForm(user) {
         setMessage('')
-        if (user.length === 0) {
-            setMessage('É necessário preencher todos os campos!')
-            setType('error')
-            return false
-        }
         if (user.user_name === '' || 
             user.user_sbname === '' || 
             user.user_age === ''
@@ -75,7 +60,6 @@ function FormPerson({handleSubmit, txtBtn}){
         return handleSubmit(user)
     }
     
-
     function OnChange(e){
         setUser({ ...user, [e.target.name]: e.target.value })
         setMessage('')
@@ -93,6 +77,7 @@ function FormPerson({handleSubmit, txtBtn}){
                 name: e.target.options[e.target.selectedIndex].text
             }
         })
+        setMessage('')
     }
 
     function submit(e) {
@@ -101,7 +86,7 @@ function FormPerson({handleSubmit, txtBtn}){
     }
 
     return (
-        <div className={styles.personContainer}>
+        <div className={styles.formContainer}>
             <h2>Dados Pessoais</h2>
             {message && <Message msg={message} type={type} />}
             <form onSubmit={submit}>
