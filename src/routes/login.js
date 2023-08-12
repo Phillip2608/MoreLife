@@ -8,20 +8,6 @@ import LoginForm from '../components/loginForm/loginForm'
 function Login() {
     const [allUsers, setAllUsers] = useState([])
     const navigate = useNavigate()
-    
-    useEffect(() => {
-        fetch("http://localhost:5000/users", {
-            method:"GET",
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                setAllUsers(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
 
     function createSession(user){
         allUsers.map(allUser => {

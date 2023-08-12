@@ -22,34 +22,6 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
     const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     const regexPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/;
 
-    useEffect(() => {
-        fetch("http://localhost:5000/sexos", {
-            method: "GET",
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setSexo(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
-
-    useEffect(() => {
-        fetch("http://localhost:5000/users", {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then((resp) => resp.json())
-            .then((data) => {
-                setAllUsers(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
-
     function validateForm(user) {
         if (user.length === 0) {
             setMessage('É necessário preencher todos os campos!')

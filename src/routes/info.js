@@ -14,79 +14,16 @@ function Info(){
     const id = parseInt(localStorage.getItem("id"))
     const navigate = useNavigate()
 
-    useEffect(() =>{
-        fetch(`http://localhost:5000/users/${id}`,{
-            method:'GET',
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            setUser(data)
-        })
-        .catch(err => console.log(err))
-    }, [id])
-
-    useEffect(() => {
-        fetch("http://localhost:5000/responsaveis",{
-            method:'GET',
-            headers: {
-                'Content-Type':'application/json'
-            }
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            setAllRespon(data)
-        })
-        .catch(err => console.log(err))
-    }, [id])
-
     function updatePerson(user) {
-        fetch(`http://localhost:5000/users/${id}`, {
-            method:'PATCH',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            localStorage.setItem("name", user.user_name)
-            localStorage.setItem("sbName", user.user_sbname)
-            localStorage.setItem("age", user.user_age)
-            navigate(`/dashboard/${user.user_name}/info`)
-            
-        })
-        .catch(err => console.log(err))
+        
     }
 
     function updateAccount(user) {
-        fetch(`http://localhost:5000/users/${id}`,{
-            method:'PATCH',
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify(user)
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-        })
-        .catch(err => console.log(err))
+        
     }
 
     function addRespon(respon) {
-        fetch("http://localhost:5000/responsaveis",{
-            method:"POST",
-            headers:{
-                'Content-Type':'application/json'
-            },
-            body: JSON.stringify(respon)
-        })
-        .then(resp => resp.json())
-        .then(data => console.log(data))
-        .catch(err => console.log(err))
+        
     }
 
     return (

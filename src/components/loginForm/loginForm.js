@@ -22,20 +22,6 @@ function LoginForm({ handleSubmit, btnText, userData }) {
     let email = ""
     let pass = ""
 
-    useEffect(() => {
-        fetch("http://localhost:5000/users", {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(resp => resp.json())
-            .then(data => {
-                setAllUsers(data)
-            })
-            .catch(err => console.log(err))
-    }, [])
-
     function validationForm(user) {
         allUsers.map(allUser => {
             if (allUser.user_email === user.email) {

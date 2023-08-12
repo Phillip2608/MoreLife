@@ -9,16 +9,7 @@ function Register() {
     const navigate = useNavigate()
 
     function createUser(user) {
-        fetch("http://localhost:5000/users", {
-            method: "POST",
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(user)
-        })
-            .then(resp => resp.json())
-            .then((data) => {
-                return navigate("/login", {state: 'Usuário cadastrado com sucesso!'})
-            })
-            .catch(err => console.log(err))
+        
     }
 
     return (
