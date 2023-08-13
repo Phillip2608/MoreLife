@@ -12,6 +12,7 @@ function Login() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    localStorage.clear()
     getData("tb_user", (snapshot) => {
       setAllUsers([]);
       const data = snapshot.val();
