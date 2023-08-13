@@ -8,8 +8,8 @@ function Select({nameSelect, text, options, value, handleOnChange}){
                 <option> Selecione uma opção </option>
                 {
                     options.map((option) =>(
-                        <option value={option.id} key={option.id}>
-                            {option.name}
+                        <option value={option.vl_sexo} key={option.vl_sexo}>
+                            {option.nm_sexo}
                         </option>
                     ))
                 }
