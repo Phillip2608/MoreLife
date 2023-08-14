@@ -8,10 +8,10 @@ import Message from '../layout/message'
 
 function FormAccount({handleSubmit, txtBtn, dataUser}){
     const [newPass, setNewPass] = useState({
-        'user_passAn': '', 
-        'user_passNew':'', 
-        'conf_user_passNew': '',
-        'user_newEmail': ''
+        'nm_senhaAn': '', 
+        'nm_senhaNew':'', 
+        'conf_nm_senhaNew': '',
+        'nm_newEmail': ''
     })
     const [message, setMessage] = useState("")
     const [type, setType] = useState("")
@@ -21,51 +21,51 @@ function FormAccount({handleSubmit, txtBtn, dataUser}){
     const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
     const regexPass = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])([a-zA-Z0-9]{8,})$/;
 
-    newPass.user_newEmail = user.user_email
+    newPass.nm_newEmail = user.nm_email
     function validateForm() {
         setMessage('')
-        if(newPass.user_newEmail === ''){
+        if(newPass.nm_newEmail === ''){
             setMessage('O email deve estar preenchido!')
             setType('error')
             return false
         }
-        if(user.user_pass !== newPass.user_passAn){
+        if(user.nm_senha !== newPass.nm_senhaAn){
             setMessage('A senha atual deve se coincidir!')
             setType('error')
             return false
         }
-        if(newPass.user_passAn === newPass.user_passNew){
+        if(newPass.nm_senhaAn === newPass.nm_senhaNew){
             setMessage('A nova senha deve ser diferente da atual!')
             setType('error')
             return false
         }
-        if((newPass.user_passNew === '' || newPass.conf_user_passNew === '') && newPass.user_passAn !== ''){
+        if((newPass.nm_senhaNew === '' || newPass.conf_nm_senhaNew === '') && newPass.nm_senhaAn !== ''){
             setMessage('Para atualizar é necessário preencher os campos')
             setType('error')
             return false
         }
-        if (regexEmail.test(newPass.user_newEmail) === false) {
+        if (regexEmail.test(newPass.nm_newEmail) === false) {
             setMessage('O email deve existir!')
             setType('error')
             return false
         }
-        if (regexPass.test(newPass.user_passNew) === false) {
+        if (regexPass.test(newPass.nm_senhaNew) === false) {
             setMessage('A senha deve possuir no mínimo 8 caracteres, 1 número, uma letra minúscula e uma letra maiúscula!')
             setType('error')
             return false
         }
-        if(newPass.user_passNew !== newPass.conf_user_passNew){
+        if(newPass.nm_senhaNew !== newPass.conf_nm_senhaNew){
             setMessage('A nova senha deve se coincidir!')
             setType('error')
             return false
         }
 
-        user.user_pass = newPass.user_passNew
-        user.user_confPass = newPass.conf_user_passNew
-        user.user_email = newPass.user_newEmail
-        newPass.user_passAn= ''
-        newPass.user_passNew= ''
-        newPass.conf_user_passNew= ''
+        user.nm_senha = newPass.nm_senhaNew
+        user.user_confPass = newPass.conf_nm_senhaNew
+        user.nm_email = newPass.nm_newEmail
+        newPass.nm_senhaAn= ''
+        newPass.nm_senhaNew= ''
+        newPass.conf_nm_senhaNew= ''
         setMessage('Atualização feita com sucesso!')
         setType('success')
         return handleSubmit(user)
@@ -91,32 +91,32 @@ function FormAccount({handleSubmit, txtBtn, dataUser}){
                 <Input
                     type="email"
                     text="Email"
-                    nameInput="user_newEmail"
+                    nameInput="nm_newEmail"
                     placeholder="Digite um novo email"
-                    value={newPass.user_newEmail ? newPass.user_newEmail : ''}
+                    value={newPass.nm_newEmail ? newPass.nm_newEmail : ''}
                     handleOnChange={OnChangePass}
                 />
                 <Input
                     type="password"
                     text="Senha atual"
-                    nameInput="user_passAn"
+                    nameInput="nm_senhaAn"
                     placeholder="Digite sua senha atual"
-                    value={newPass.user_passAn ? newPass.user_passAn : ''}
+                    value={newPass.nm_senhaAn ? newPass.nm_senhaAn : ''}
                     handleOnChange={OnChangePass}
                 />
                 <Input
                     type="password"
                     text="Nova senha"
-                    nameInput="user_passNew"
+                    nameInput="nm_senhaNew"
                     placeholder="Digite sua nova senha"
-                    value={newPass.user_passNew ? newPass.user_passNew : ''}
+                    value={newPass.nm_senhaNew ? newPass.nm_senhaNew : ''}
                     handleOnChange={OnChangePass}
                 />
                 <Input
                     type="password"
                     text="Confirmar senha"
-                    nameInput="conf_user_passNew"
-                    value={newPass.conf_user_passNew ? newPass.conf_user_passNew : ''}
+                    nameInput="conf_nm_senhaNew"
+                    value={newPass.conf_nm_senhaNew ? newPass.conf_nm_senhaNew : ''}
                     placeholder="Confirme sua nova senha"
                     handleOnChange={OnChangePass}
                 />

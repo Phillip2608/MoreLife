@@ -8,10 +8,10 @@ import Message from '../layout/message'
 
 function FormResp({handleSubmit, txtBtn, dataUser}){
     const [respon, setRespon] = useState({
-        'name': '',
-        'age': '',
-        'email': '',
-        'cell': ''
+        'nm_resp': '',
+        'nb_ageresp': '',
+        'nm_email': '',
+        'nb_cell': ''
     })
     const [message, setMessage] = useState("")
     const [type, setType] = useState("")
@@ -25,32 +25,32 @@ function FormResp({handleSubmit, txtBtn, dataUser}){
     }
 
     function validateForm() {
-        if(respon.name === '' || respon.age === '' || respon.email === '' || respon.cell === ''){
+        if(respon.nm_resp === '' || respon.nb_ageresp === '' || respon.nm_email === '' || respon.nb_cell === ''){
             setMessage('É necessário preencher todos os campos!')
             setType('error')
             return false
         }
-        if(respon.name.length < 3){
+        if(respon.nm_resp.length < 3){
             setMessage('O nome deve ter no mínimo 3 caracteres')
             setType('error')
             return false
         }
-        if(parseInt(respon.age) < 18){
+        if(parseInt(respon.nb_ageresp) < 18){
             setMessage('O responsável deve ter no mínimo 18 anos!')
             setType('error')
             return false
         }
-        if(respon.email === user.user_email){
+        if(respon.nm_email === user.user_email){
             setMessage('O email do responsável deve ser diferente do usuário!')
             setType('error')
             return false
         }
-        if (regexEmail.test(respon.email) === false) {
+        if (regexEmail.test(respon.nm_email) === false) {
             setMessage('O email deve existir!')
             setType('error')
             return false
         }
-        if(respon.cell.length < 11 || parseInt(respon.cell) < 0 || respon.cell.length > 11){
+        if(respon.nb_cell.length < 11 || parseInt(respon.nb_cell) < 0 || respon.nb_cell.length > 11){
             setMessage('O número de telefone deve existir!')
             setType('error')
             return false
@@ -74,32 +74,32 @@ function FormResp({handleSubmit, txtBtn, dataUser}){
                 <Input
                     type="text"
                     text="Nome do responsável"
-                    nameInput="name"
+                    nameInput="nm_resp"
                     placeholder="Digite o nome completo"
-                    value={respon.name ? respon.name : ''}
+                    value={respon.nm_resp ? respon.nm_resp : ''}
                     handleOnChange={OnChange}
                 />
                 <Input
                     type="number"
                     text="Idade do responsável"
-                    nameInput="age"
+                    nameInput="nb_ageresp"
                     placeholder="Digite a idade do responsável"
-                    value={respon.age ? respon.age : ''}
+                    value={respon.nb_ageresp ? respon.nb_ageresp : ''}
                     handleOnChange={OnChange}
                 />
                 <Input
                     type="email"
                     text="Email do responsável"
-                    nameInput="email"
+                    nameInput="nm_email"
                     placeholder="Digite o email do responsável"
-                    value={respon.email ? respon.email : ''}
+                    value={respon.nm_email ? respon.nm_email : ''}
                     handleOnChange={OnChange}
                 />
                 <Input
                     type="number"
                     text="Número do responsável"
-                    nameInput="cell"
-                    value={respon.cell ? respon.cell : ''}
+                    nameInput="nb_cell"
+                    value={respon.nb_cell ? respon.nb_cell : ''}
                     placeholder="(xx)xxxxx-xxxx"
                     handleOnChange={OnChange}
                 />
