@@ -8,7 +8,7 @@ import FormAccount from "../components/dashForms/formAccount";
 import FormResp from "../components/dashForms/formResp";
 import CardRespon from "../components/dashboard/cardRespon";
 
-import { getData } from "../services/FirebaseConfig";
+import { getData, updateData, setData } from "../services/FirebaseConfig";
 
 function Info() {
   const [user, setUser] = useState({});
@@ -19,20 +19,35 @@ function Info() {
   useEffect(() => {
     getData(`tb_user/${id}`, (snapshot) => {
       setUser({});
-      const data = snapshot.val()
-      if(data !== null){
-        setUser(data)
+      const data = snapshot.val();
+      if (data !== null) {
+        setUser(data);
+      }
+    });
+    getData(`tb_responsavel`, (snapshot) => {
+      setAllRespon([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((respon) => {
+          return setAllRespon((respons) => [...respons, respon]);
+        });
       }
     });
   }, []);
 
-  console.log(user)
+  console.log(user);
 
-  function updatePerson(user) {}
+  function updatePerson(user) {
+    updateData("tb_user", user.id, user);
+  }
 
-  function updateAccount(user) {}
+  function updateAccount(user) {
+    updateData("tb_user", user.id, user);
+  }
 
-  function addRespon(respon) {}
+  function addRespon(respon) {
+    setData(`tb_responsavel/${respon.id}`, respon);
+  }
 
   return (
     <div className={styles.infoContainer}>
@@ -57,8 +72,8 @@ function Info() {
           if (respon.id_user === id) {
             return (
               <CardRespon
-                name={respon.name}
-                cell={respon.cell}
+                name={respon.nm_resp}
+                cell={respon.nb_cell}
                 key={respon.id}
               />
             );
