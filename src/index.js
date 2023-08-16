@@ -10,13 +10,12 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //Import routes
 import Home from './routes/home';
 import ErrorPage from './routes/errorPage';
-import Graphic from './routes/graphic';
-import Table from './routes/table';
-import Download from './routes/download';
+import Graphic from './routes/dashboard_routes/graphic';
+import Table from './routes/dashboard_routes/table';
+import Download from './routes/dashboard_routes/download';
 import Dashboard from './routes/dashboard';
 import Login from './routes/login'
-import Register from './routes/register'
-import Info from './routes/info'
+import Info from './routes/dashboard_routes/info'
 
 const username = localStorage.getItem("name")
 
@@ -31,14 +30,14 @@ const router = createBrowserRouter([
         element:<Home />
       },
       {
-        path:"/login",
-        element:<Login />
-      },
-      {
-        path:"/register",
-        element:<Register />
+        path:"/download",
+        element:<Download />
       }
     ]
+  },
+  {
+    path:"/login",
+    element:<Login/>
   },
   {
     path:`/dashboard/${username !== '' && username}`,
@@ -55,10 +54,6 @@ const router = createBrowserRouter([
       {
         path:`/dashboard/${username !== '' && username}/info`,
         element:<Info />
-      },
-      {
-        path:`/dashboard/${username !== '' && username}/download`,
-        element:<Download />
       }
     ]
   }

@@ -1,35 +1,12 @@
 .navbar{
-    width: 25%;
-    height: 100%;
-}
-
-.list{
-    width: 100%;
-    height: 100%;
-    list-style: none;
-    margin-right: 20px;
-    user-select: none;
-}
-
-.infoUser{
-    width: 100%;
-    border-right: 1px solid #a3a3a3;
-    border-bottom: 1px solid #a3a3a3;
+    width: 80%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-between;
 }
 
-.infoUser span{
-    width: 150px;
-    height: 150px;
-    background-color: #1f1f1f;
-    border-radius: 50%;
-    margin: .5em 0;
-}
-
-.infoUser p{
-    font-size: 24px;
-    font-weight: 700;
+.navbar ul{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
 }

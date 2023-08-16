@@ -1,11 +1,46 @@
 .home{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
 }
 
-.home h1{
-    font-size: 50px;
-    margin-bottom: 1em;
+.img {
+  height: 90vh;
+  background: url("../../img/More_Life_3.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.smooth {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.4;
+}
+
+.content{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.content div{
+  width: 80%;
+}
+
+.content h1{
+  margin-left: 5%;
+  color: aliceblue;
+}
+
+.contentBtn{
+  margin-left: 5%;
+  margin-top: 2%;
 }

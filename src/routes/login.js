@@ -34,7 +34,7 @@ function Login() {
         setLocalStorage("sbName", allUser.nm_sbuser);
         setLocalStorage("id", allUser.id);
 
-        return navigate(`/dashboard/${allUser.nm_user}`);
+        return navigate("/");
       }
     });
   }

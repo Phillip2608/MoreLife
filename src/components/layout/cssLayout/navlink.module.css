@@ -1,28 +1,8 @@
 .navlink{
     text-decoration: none;
-    color: black;
+    color: aliceblue;
 }
 
 .navlink li{
-    padding: 5%;
-    display: flex;
-    justify-content: start;
-    align-items: center;
-    flex-direction: row;
-    border-top: 1px solid #a3a3a3;
-    border-right: 1px solid #a3a3a3;
-    border-bottom: 1px solid #a3a3a3;
-    cursor: pointer;
-    transition: all .5s;
-    font-size: 20px;
-}
-
-.navlink li p{
-    margin-left: 5px;
-    font-weight: 700;
-}
-
-.navlink li:hover{
-    color:#3da63f ;
-    border-color: #3da63f;
+    list-style: none;
 }

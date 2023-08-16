@@ -1,8 +1,11 @@
-import styles from './cssLayout/container.module.css'
+import styles from "./cssLayout/container.module.css";
 
-function Container(props){
-    return <div className={`${styles.container} ${styles[props.customClass]}`}>{props.children}</div>
-    
+function Container(props) {
+  return (
+    <div className={`${styles.container} ${styles[props.customClass]}`}>
+      {props.children}
+    </div>
+  );
 }
 
-export default Container
+export default Container;
