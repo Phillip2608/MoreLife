@@ -3,6 +3,7 @@
     padding: 2.5em;
     box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.15);
     border-radius: 15px;
+    background-color: #f2f0f0;
 }
 
 .registerContainer form{

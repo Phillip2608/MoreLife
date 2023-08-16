@@ -1,3 +1,9 @@
+.pos{
+    position:relative;
+    width: 100%;
+    height: 100%;
+}
+
 .content{
     width: 100%;
     height: 100vh;
@@ -9,7 +15,7 @@
 }
 
 .contentFrase{
-    width: 45%;
+    width: 50%;
 }
 
 .contentFrase p{
@@ -24,9 +30,18 @@
     background-color: #f2f0f0;
 }
 
-h1{
+.linkHome{
     font-size: 48px;
     font-weight: 700;
+    margin-bottom: 15px;
+    text-decoration: none;
+    color: black;
+    user-select: none;
+    transition: all .3s;
+}
+
+.linkHome:hover{
+    font-size: 50px;
 }
 
 hr{
@@ -35,6 +50,27 @@ hr{
 
 .contentBtn{
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.registerSmooth{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+}
+
+.contentRegister{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
     display: flex;
     justify-content: center;
     align-items: center;

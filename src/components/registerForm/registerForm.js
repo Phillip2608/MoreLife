@@ -19,6 +19,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
   const [user, setUser] = useState(userData || []);
   const [message, setMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
+  const [confPass, setConfPass] = useState([])
   let email = "";
 
   const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
@@ -75,7 +76,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
       );
       return false;
     }
-    if (user.nm_senha !== user.user_confPass) {
+    if (user.nm_senha !== confPass) {
       setMessage("As senhas devem se coincidir!");
       return false;
     }
@@ -109,6 +110,14 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
   function handleChange(e) {
     setUser({ ...user, [e.target.name]: e.target.value });
     if (e.target.value === "") {
+      setMessage("É necessário preencher todos os campos!");
+      return false;
+    }
+  }
+
+  function passChange(e) {
+    setConfPass(e.target.value);
+    if (confPass === "") {
       setMessage("É necessário preencher todos os campos!");
       return false;
     }
@@ -190,22 +199,15 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
             type="password"
             nameInput="user_confPass"
             placeholder="Confirme sua senha"
-            handleOnChange={handleChange}
-            customClass={user.user_confPass === "" && "error"}
-            value={user.user_confPass ? user.user_confPass : ""}
+            handleOnChange={passChange}
+            customClass={confPass === "" && "error"}
+            value={confPass ? confPass : ""}
           />
           <div className={styles.btnContainer}>
             <ButtonForm text={btnText} />
           </div>
         </div>
       </form>
-      <div className={styles.linkContainer}>
-        <Link to="/login">
-          Já possui um cadastro?
-          <br />
-          Logar!
-        </Link>
-      </div>
     </div>
   );
 }

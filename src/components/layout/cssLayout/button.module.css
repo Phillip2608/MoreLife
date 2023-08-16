@@ -9,6 +9,12 @@
 }
 
 .register{
-    background-color: #4067c9;
+    background-color: #304f9c;
     color: aliceblue;
+    transition: all .5s;
+}
+
+.register:hover{
+    background-color: #4067c9;
+    transform: scale(1.05);
 }
