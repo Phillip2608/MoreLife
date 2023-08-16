@@ -86,7 +86,7 @@ function LoginForm({ handleSubmit, btnText, userData }) {
   }
 
   return (
-    <div className={styles.formContainer}>
+    <div>
       {message !== "" && <Message msg={message} type={type} />}
       {msg !== "" && <Message msg={msg} type={type} />}
       <form onSubmit={submit}>
@@ -113,14 +113,6 @@ function LoginForm({ handleSubmit, btnText, userData }) {
           <ButtonForm text={btnText} />
         </div>
       </form>
-      <div className={styles.linkContainer}>
-        <Link to="/register">
-          {" "}
-          Não possui um cadastro?
-          <br />
-          Registre-se!{" "}
-        </Link>
-      </div>
     </div>
   );
 }

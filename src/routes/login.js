@@ -1,3 +1,5 @@
+import styles from "./cssRoutes/login.module.css";
+
 import { useState, useEffect } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -7,12 +9,14 @@ import { getData } from "../services/FirebaseConfig";
 //Import Components
 import Container from "../components/layout/container";
 import LoginForm from "../components/loginForm/loginForm";
+import Button from "../components/layout/button";
+
 function Login() {
   const [allUsers, setAllUsers] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
-    localStorage.clear()
+    localStorage.clear();
     getData("tb_user", (snapshot) => {
       setAllUsers([]);
       const data = snapshot.val();
@@ -46,9 +50,20 @@ function Login() {
   }
 
   return (
-    <Container customClass="center">
-      <h1>Login</h1>
-      <LoginForm btnText="Entrar" handleSubmit={createSession} />
+    <Container customClass="start">
+      <div className={styles.content}>
+        <div className={styles.contentFrase}>
+          <h1>MoreLife</h1>
+          <p>O MoreLife ajuda voce a melhorar sua saude enquanto escutamos cada batimento do seu coracao</p>
+        </div>
+        <div className={styles.formcad}>
+          <LoginForm btnText="Entrar" handleSubmit={createSession} />
+          <hr />
+          <div className={styles.contentBtn}>
+            <Button text="Criar uma conta" customClass="register"/>
+          </div>
+        </div>
+      </div>
     </Container>
   );
 }

@@ -1,5 +1,41 @@
+.content{
+    width: 100%;
+    height: 100vh;
+    padding: 12%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #d6d6d6;
+}
+
+.contentFrase{
+    width: 45%;
+}
+
+.contentFrase p{
+    font-size: 24px;
+}
+
+.formcad{
+    width: 380px;
+    padding: 2.5em;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+    border-radius: 15px;
+    background-color: #f2f0f0;
+}
+
 h1{
-    font-size: 40px;
+    font-size: 48px;
     font-weight: 700;
-    margin-bottom: .5em;
+}
+
+hr{
+    margin-top: 20px;
+}
+
+.contentBtn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
