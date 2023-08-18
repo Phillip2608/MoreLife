@@ -1,11 +1,17 @@
 import styles from "./cssLayout/navbar.module.css";
 
+import { useEffect, useState } from "react";
 import { FaHeartbeat } from "react-icons/fa";
 
 import NavLink from "./navlink";
 
 function NavBar() {
-  const id = localStorage.getItem("id");
+  const [id, setId] = useState("")
+  useEffect(() => {
+    setId(localStorage.getItem("id"))
+  }, [])
+
+  console.log(id)
 
   return (
     <nav className={styles.navbar}>
@@ -15,9 +21,9 @@ function NavBar() {
       <ul>
         <NavLink text="Download" to="/download" />
         <NavLink text="Sobre" />
-        {id && <NavLink text="Dashboard" />}
-        {id ? (
-          <NavLink text="Meu Perfil" />
+        {id !== null ? <NavLink text="Dashboard" /> : ""}
+        {id !== null ? (
+          <NavLink text="Meu Perfil" to="/myprofile"/>
         ) : (
           <NavLink text="Entrar" to="/login" />
         )}

@@ -1,0 +1,7 @@
+.menuSide{
+    width: 100%;
+    list-style:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

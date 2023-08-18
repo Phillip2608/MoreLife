@@ -1,69 +1,73 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
 //Importando react-routers
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 //Import routes
-import Home from './routes/home';
-import ErrorPage from './routes/errorPage';
-import Graphic from './routes/dashboard_routes/graphic';
-import Table from './routes/dashboard_routes/table';
-import Download from './routes/dashboard_routes/download';
-import Dashboard from './routes/dashboard';
-import Login from './routes/login'
-import Info from './routes/dashboard_routes/info'
+import Home from "./routes/home";
+import ErrorPage from "./routes/errorPage";
+import Graphic from "./routes/dashboard_routes/graphic";
+import Table from "./routes/dashboard_routes/table";
+import Download from "./routes/dashboard_routes/download";
+import Dashboard from "./routes/dashboard";
+import Login from "./routes/login";
+import Info from "./routes/dashboard_routes/info";
+import MyProfile from "./routes/myProfile";
 
-const username = localStorage.getItem("name")
+const username = localStorage.getItem("name");
 
 const router = createBrowserRouter([
   {
-    path:"/",
-    element:<App />,
-    errorElement:<ErrorPage />,
-    children:[
+    path: "/",
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
       {
-        path:"/",
-        element:<Home />
+        path: "/",
+        element: <Home />,
       },
       {
-        path:"/download",
-        element:<Download />
-      }
-    ]
+        path: "/download",
+        element: <Download />,
+      },
+      {
+        path: "/myprofile",
+        element: <MyProfile />,
+      },
+    ],
   },
   {
-    path:"/login",
-    element:<Login/>
+    path: "/login",
+    element: <Login />,
   },
   {
-    path:`/dashboard/${username !== '' && username}`,
-    element:<Dashboard />,
-    children:[
+    path: `/dashboard/${username !== "" && username}`,
+    element: <Dashboard />,
+    children: [
       {
-        path:`/dashboard/${username !== '' && username}/graphic`,
-        element:<Graphic />
+        path: `/dashboard/${username !== "" && username}/graphic`,
+        element: <Graphic />,
       },
       {
-        path:`/dashboard/${username !== '' && username}/table`,
-        element:<Table />
+        path: `/dashboard/${username !== "" && username}/table`,
+        element: <Table />,
       },
       {
-        path:`/dashboard/${username !== '' && username}/info`,
-        element:<Info />
-      }
-    ]
-  }
-])
+        path: `/dashboard/${username !== "" && username}/info`,
+        element: <Info />,
+      },
+    ],
+  },
+]);
 
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router}/>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 

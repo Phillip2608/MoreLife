@@ -25,6 +25,10 @@ export const getData = (path, func) => {
   onValue(ref(db, `/${path}`), func);
 };
 
+export const getFromID = (path, id, func) => {
+  onValue(ref(db, `/${path}/${id}`), func);
+};
+
 //! add
 export const setData = (path, data) => {
   set(ref(db, `/${path}`), data);
