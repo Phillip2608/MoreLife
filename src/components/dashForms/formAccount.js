@@ -66,7 +66,6 @@ function FormAccount({ handleSubmit, txtBtn, dataUser }) {
     }
 
     user.nm_senha = newPass.nm_senhaNew;
-    user.user_confPass = newPass.conf_nm_senhaNew;
     user.nm_email = newPass.nm_newEmail;
     newPass.nm_senhaAn = "";
     newPass.nm_senhaNew = "";

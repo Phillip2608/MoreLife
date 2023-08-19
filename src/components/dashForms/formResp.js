@@ -14,10 +14,15 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
     nm_email: "",
     nb_cell: "",
   });
+  const [inputRespon, setInputRespon] = useState({
+    nm_resp: "",
+    nb_ageresp: "",
+    nm_email: "",
+    nb_cell: "",
+  });
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
   const user = dataUser;
-
   const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
   function OnChange(e) {
@@ -68,10 +73,19 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
 
     setMessage("Responsável adicionado com sucesso!");
     setType("success");
-    const uuid = uid()
-    respon.id = uuid
-    respon.id_user = user.id;
-    return handleSubmit(respon);
+    const uuid = uid();
+    inputRespon.nm_resp = respon.nm_resp
+    inputRespon.nm_email = respon.nm_email
+    inputRespon.nb_ageresp = respon.nb_ageresp
+    inputRespon.nb_cell = respon.nb_cell
+    inputRespon.id = uuid
+    inputRespon.id_user = user.id
+
+    respon.nm_resp = ""
+    respon.nm_email = ""
+    respon.nb_ageresp = ""
+    respon.nb_cell = ""
+    return handleSubmit(inputRespon);
   }
 
   function submit(e) {
@@ -80,44 +94,53 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
   }
   return (
     <div className={styles.formContainer}>
-      <h2>Dados do Responsável</h2>
-      {message && <Message msg={message} type={type} />}
+      <h1>Dados do Responsável</h1>
       <form onSubmit={submit}>
-        <Input
-          type="text"
-          text="Nome do responsável"
-          nameInput="nm_resp"
-          placeholder="Digite o nome completo"
-          value={respon.nm_resp ? respon.nm_resp : ""}
-          handleOnChange={OnChange}
-        />
-        <Input
-          type="number"
-          text="Idade do responsável"
-          nameInput="nb_ageresp"
-          placeholder="Digite a idade do responsável"
-          value={respon.nb_ageresp ? respon.nb_ageresp : ""}
-          handleOnChange={OnChange}
-        />
-        <Input
-          type="email"
-          text="Email do responsável"
-          nameInput="nm_email"
-          placeholder="Digite o email do responsável"
-          value={respon.nm_email ? respon.nm_email : ""}
-          handleOnChange={OnChange}
-        />
-        <Input
-          type="number"
-          text="Número do responsável"
-          nameInput="nb_cell"
-          value={respon.nb_cell ? respon.nb_cell : ""}
-          placeholder="(xx)xxxxx-xxxx"
-          handleOnChange={OnChange}
-        />
+        <div className={styles.names}>
+          <Input
+            type="text"
+            nameInput="nm_resp"
+            placeholder="Digite o nome completo do responsável"
+            value={respon.nm_resp ? respon.nm_resp : ""}
+            handleOnChange={OnChange}
+          />
+          <div className={styles.leftData}>
+            <Input
+              type="number"
+              nameInput="nb_ageresp"
+              placeholder="Digite a idade do responsável"
+              value={respon.nb_ageresp ? respon.nb_ageresp : ""}
+              handleOnChange={OnChange}
+            />
+          </div>
+        </div>
+        <div className={styles.ageSexo}>
+          <div className={styles.cont30}>
+            <Input
+              type="email"
+              nameInput="nm_email"
+              placeholder="Digite o email do responsável"
+              value={respon.nm_email ? respon.nm_email : ""}
+              handleOnChange={OnChange}
+            />
+          </div>
+          <div className={styles.cont30}>
+            <div className={styles.leftData}>
+              <Input
+                type="number"
+                nameInput="nb_cell"
+                value={respon.nb_cell ? respon.nb_cell : ""}
+                placeholder="(xx)xxxxx-xxxx"
+                handleOnChange={OnChange}
+              />
+            </div>
+          </div>
 
-        <div className={styles.btnContainer}>
-          <ButtonForm text={txtBtn} />
+          <div className={styles.cont30}>
+            <div className={styles.leftBtn}>
+              <ButtonForm text={txtBtn} />
+            </div>
+          </div>
         </div>
       </form>
     </div>
