@@ -34,7 +34,7 @@ const router = createBrowserRouter([
         path: "/download",
         element: <Download />,
       },
-      {
+      username !== null && {
         path: "/myprofile",
         element: <MyProfile />,
       },

@@ -1,13 +1,40 @@
-.formContainer{
-    width: 30%;
+.formContainer {
+  width: 100%;
 }
 
-.formContainer h2{
-    font-weight: 700;
-    border-bottom: 1px solid #d6be22;
-    margin-bottom: 15px;
+.formContainer form {
+  display: flex;
+  flex-wrap: wrap;
 }
 
-.formContainer .btnContainer{
-    margin-top: 20px;
+.formContainer h2 {
+  font-weight: 700;
+  border-bottom: 1px solid #d6be22;
+  margin-bottom: 15px;
+}
+
+.names {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.leftData {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.ageSexo {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.ageSexo .cont30 {
+  width: 32%;
+}
+
+.cont30 .leftBtn{
+    margin-top: 2.5px;
+    margin-left: 50px;
 }

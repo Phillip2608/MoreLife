@@ -5,7 +5,7 @@ function ListItem(props) {
     <li className={styles.contentItem} onClick={props.handleClick}>
       <div className={`${styles.item} ${styles[props.customClass]}`}>
         {props.icon}
-        <p>{props.text}</p>
+        <p href={props.to}>{props.text}</p>
       </div>
     </li>
   );

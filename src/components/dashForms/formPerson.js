@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import ButtonForm from "../form/buttonForm";
 import Input from "../form/input";
 import Select from "../form/select";
-import Message from "../layout/message";
 
 import { getData } from "../../services/FirebaseConfig";
 
@@ -87,42 +86,52 @@ function FormPerson({ handleSubmit, txtBtn, dataUser }) {
 
   return (
     <div className={styles.formContainer}>
-      <h2>Dados Pessoais</h2>
-      {message && <Message msg={message} type={type} />}
+      <h1>Dados Pessoais</h1>
       <form onSubmit={submit}>
-        <Input
-          type="text"
-          text="Nome"
-          nameInput="nm_user"
-          placeholder="Digite seu nome"
-          value={user.nm_user ? user.nm_user : ""}
-          handleOnChange={OnChange}
-        />
-        <Input
-          type="text"
-          text="Sobrenome"
-          nameInput="nm_sbuser"
-          placeholder="Digite seu sobrenome"
-          value={user.nm_sbuser ? user.nm_sbuser : ""}
-          handleOnChange={OnChange}
-        />
-        <Input
-          type="number"
-          text="Idade"
-          nameInput="nb_ageuser"
-          placeholder="Digite sua idade"
-          value={user.nb_ageuser ? user.nb_ageuser : ""}
-          handleOnChange={OnChange}
-        />
-        <Select
-          nameSelect="user_sexo"
-          options={sexo}
-          text="Sexo"
-          value={user?.user_sexo?.vl_sexo}
-          handleOnChange={handleSexo}
-        />
-        <div className={styles.btnContainer}>
-          <ButtonForm text={txtBtn} />
+        <div className={styles.names}>
+          <Input
+            type="text"
+            nameInput="nm_user"
+            placeholder="Digite seu nome"
+            value={user.nm_user ? user.nm_user : ""}
+            handleOnChange={OnChange}
+          />
+          <div className={styles.leftData}>
+            <Input
+              type="text"
+              nameInput="nm_sbuser"
+              placeholder="Digite seu sobrenome"
+              value={user.nm_sbuser ? user.nm_sbuser : ""}
+              handleOnChange={OnChange}
+            />
+          </div>
+        </div>
+        <div className={styles.ageSexo}>
+          <div className={styles.cont30}>
+            <Input
+              type="number"
+              nameInput="nb_ageuser"
+              placeholder="Digite sua idade"
+              value={user.nb_ageuser ? user.nb_ageuser : ""}
+              handleOnChange={OnChange}
+            />
+          </div>
+          <div className={styles.cont30}>
+            <div className={styles.leftData}>
+              <Select
+                nameSelect="user_sexo"
+                options={sexo}
+                value={user?.user_sexo?.vl_sexo}
+                handleOnChange={handleSexo}
+              />
+            </div>
+          </div>
+
+          <div className={styles.cont30}>
+            <div className={styles.leftBtn}>
+              <ButtonForm text={txtBtn} />
+            </div>
+          </div>
         </div>
       </form>
     </div>
