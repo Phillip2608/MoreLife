@@ -3,10 +3,7 @@ import styles from "./cssRoutes/myprofile.module.css";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  getFromID,
-  updateData,
-} from "../services/FirebaseConfig";
+import { getFromID, updateData } from "../services/FirebaseConfig";
 
 import { FaUser } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
@@ -15,6 +12,7 @@ import { FaUserCog } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
 import ListItem from "../components/layout/listItem";
 import FormPerson from "../components/dashForms/formPerson";
+import FormAccount from "../components/dashForms/formAccount";
 
 function MyProfile() {
   const [user, setUser] = useState({});
@@ -49,7 +47,7 @@ function MyProfile() {
     showSlides(slideIndex);
   }, []);
 
-  function updatePerson(user) {
+  function update(user) {
     updateData("tb_user", user.id, user);
   }
 
@@ -99,10 +97,15 @@ function MyProfile() {
         <div className={`${styles.contentUser} ${styles.fade}`}>
           <FormPerson
             txtBtn="Atualizar"
-            handleSubmit={updatePerson}
+            handleSubmit={update}
             dataUser={user}
           />
           <hr />
+          <FormAccount
+            txtBtn="Atualizar"
+            handleSubmit={update}
+            dataUser={user}
+          />
         </div>
         <div className={`${styles.contentUser} ${styles.fade}`}>add</div>
         <div className={`${styles.contentUser} ${styles.fade}`}>config</div>

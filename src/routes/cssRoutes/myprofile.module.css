@@ -60,3 +60,8 @@
     transform: scale(1);
   }
 }
+
+hr{
+  width: 85%;
+  margin: 20px auto;
+}

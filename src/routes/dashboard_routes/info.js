@@ -41,10 +41,6 @@ function Info() {
     updateData("tb_user", user.id, user);
   }
 
-  function updateAccount(user) {
-    updateData("tb_user", user.id, user);
-  }
-
   function addRespon(respon) {
     setData(`tb_responsavel/${respon.id}`, respon);
   }
@@ -59,7 +55,6 @@ function Info() {
         />
         <FormAccount
           txtBtn="Atualizar"
-          handleSubmit={updateAccount}
           dataUser={user}
         />
         <FormResp txtBtn="Adicionar" handleSubmit={addRespon} dataUser={user} />
