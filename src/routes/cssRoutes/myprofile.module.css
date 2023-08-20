@@ -47,6 +47,10 @@
   flex-wrap: wrap;
 }
 
+.titleResp{
+  margin-left: 25px;
+}
+
 .person span {
   border-radius: 50px;
   display: block;

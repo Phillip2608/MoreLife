@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import ButtonForm from "../form/buttonForm";
 import Input from "../form/input";
 import Select from "../form/select";
+import Message from "../layout/message";
 
 import { getData } from "../../services/FirebaseConfig";
 
@@ -134,6 +135,7 @@ function FormPerson({ handleSubmit, txtBtn, dataUser }) {
           </div>
         </div>
       </form>
+      {message !== "" && <Message type={type} msg={message} />}
     </div>
   );
 }

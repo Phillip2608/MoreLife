@@ -7,7 +7,7 @@ import Input from "../form/input";
 import Message from "../layout/message";
 import { uid } from "uid";
 
-function FormResp({ handleSubmit, txtBtn, dataUser }) {
+function FormResp({ handleSubmit, txtBtn, dataUser, allRespon }) {
   const [respon, setRespon] = useState({
     nm_resp: "",
     nb_ageresp: "",
@@ -23,6 +23,7 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
   const [message, setMessage] = useState("");
   const [type, setType] = useState("");
   const user = dataUser;
+  const respons = allRespon
   const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
 
   function OnChange(e) {
@@ -71,20 +72,36 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
       return false;
     }
 
+    for (let i = 0; i < respons.length; i++) {
+      if (respons !== []) {
+        if (respons[i].nm_email === respon.nm_email) {
+          setMessage("Responsável já cadastrado!");
+          setType("error");
+          return false;
+        }
+        if(respons.length >= 3){
+          setMessage("Limite de responsáveis atingido!");
+          setType("error");
+          return false;
+        }
+
+      }
+    }
+
     setMessage("Responsável adicionado com sucesso!");
     setType("success");
     const uuid = uid();
-    inputRespon.nm_resp = respon.nm_resp
-    inputRespon.nm_email = respon.nm_email
-    inputRespon.nb_ageresp = respon.nb_ageresp
-    inputRespon.nb_cell = respon.nb_cell
-    inputRespon.id = uuid
-    inputRespon.id_user = user.id
+    inputRespon.nm_resp = respon.nm_resp;
+    inputRespon.nm_email = respon.nm_email;
+    inputRespon.nb_ageresp = respon.nb_ageresp;
+    inputRespon.nb_cell = respon.nb_cell;
+    inputRespon.id = uuid;
+    inputRespon.id_user = user.id;
 
-    respon.nm_resp = ""
-    respon.nm_email = ""
-    respon.nb_ageresp = ""
-    respon.nb_cell = ""
+    respon.nm_resp = "";
+    respon.nm_email = "";
+    respon.nb_ageresp = "";
+    respon.nb_cell = "";
     return handleSubmit(inputRespon);
   }
 
@@ -143,6 +160,7 @@ function FormResp({ handleSubmit, txtBtn, dataUser }) {
           </div>
         </div>
       </form>
+      {message !== "" && <Message type={type} msg={message} />}
     </div>
   );
 }

@@ -137,6 +137,7 @@ function FormAccount({ handleSubmit, txtBtn, dataUser }) {
           </div>
         </div>
       </form>
+      {message !== "" && <Message type={type} msg={message} />}
     </div>
   );
 }

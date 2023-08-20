@@ -57,13 +57,15 @@ function MyProfile() {
       const data = snapshot.val();
       if (data !== null) {
         Object.values(data).map((respon) => {
-          return setAllRespon((respons) => [...respons, respon]);
+          if (respon.id_user === id) {
+            return setAllRespon((respons) => [...respons, respon]);
+          }
         });
       }
     });
 
     showSlides(slideIndex);
-  }, []);
+  }, [id]);
 
   function update(user) {
     updateData("tb_user", user.id, user);
@@ -123,7 +125,7 @@ function MyProfile() {
             </div>
           ) : (
             <div>
-              <h1>Responsáveis</h1>
+              <h1 className={styles.titleResp}>Responsáveis</h1>
               <div className={styles.respOk}>
                 {allRespon.map((respon) => {
                   if (respon.id_user === id) {
@@ -158,6 +160,7 @@ function MyProfile() {
             txtBtn="Adicionar"
             handleSubmit={addRespon}
             dataUser={user}
+            allRespon={allRespon}
           />
           <hr />
           {allRespon.length === 0 ? (
