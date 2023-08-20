@@ -6,12 +6,12 @@ import { FaHeartbeat } from "react-icons/fa";
 import NavLink from "./navlink";
 
 function NavBar() {
-  const [id, setId] = useState("")
+  const [id, setId] = useState("");
   useEffect(() => {
-    setId(localStorage.getItem("id"))
-  }, [])
+    setId(localStorage.getItem("id"));
+  }, []);
 
-  console.log(id)
+  console.log(id);
 
   return (
     <nav className={styles.navbar}>
@@ -20,10 +20,10 @@ function NavBar() {
       </div>
       <ul>
         <NavLink text="Download" to="/download" />
-        <NavLink text="Sobre" />
+        <NavLink text="Sobre" to="/sobre" />
         {id !== null ? <NavLink text="Dashboard" /> : ""}
         {id !== null ? (
-          <NavLink text="Meu Perfil" to="/myprofile"/>
+          <NavLink text="Meu Perfil" to="/myprofile" />
         ) : (
           <NavLink text="Entrar" to="/login" />
         )}

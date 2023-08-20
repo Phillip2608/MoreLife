@@ -16,9 +16,9 @@ import { FaUserPlus } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
 import ListItem from "../components/layout/listItem";
-import FormPerson from "../components/dashForms/formPerson";
-import FormAccount from "../components/dashForms/formAccount";
-import FormResp from "../components/dashForms/formResp";
+import FormPerson from "../components/profileForms/formPerson";
+import FormAccount from "../components/profileForms/formAccount";
+import FormResp from "../components/profileForms/formResp";
 import CardRespon from "../components/dashboard/cardRespon";
 
 function MyProfile() {
@@ -59,6 +59,8 @@ function MyProfile() {
         Object.values(data).map((respon) => {
           if (respon.id_user === id) {
             return setAllRespon((respons) => [...respons, respon]);
+          } else {
+            return false;
           }
         });
       }
@@ -136,6 +138,8 @@ function MyProfile() {
                         key={respon.id}
                       />
                     );
+                  } else {
+                    return false;
                   }
                 })}
               </div>
@@ -181,6 +185,8 @@ function MyProfile() {
                         key={respon.id}
                       />
                     );
+                  } else {
+                    return false;
                   }
                 })}
               </div>

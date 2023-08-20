@@ -1,0 +1,39 @@
+.formContainer {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.formContainer form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.formContainer h1 {
+  margin-bottom: 5px;
+}
+
+.names {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.leftData {
+  width: 100%;
+  margin-left: 20px;
+}
+
+.ageSexo {
+  width: 100%;
+  display: flex;
+  padding: 5px;
+}
+
+.ageSexo .cont30 {
+  width: 32%;
+}
+
+.cont30 .leftBtn{
+    margin-top: 2.5px;
+    margin-left: 50px;
+}

@@ -12,11 +12,11 @@ import Home from "./routes/home";
 import ErrorPage from "./routes/errorPage";
 import Graphic from "./routes/dashboard_routes/graphic";
 import Table from "./routes/dashboard_routes/table";
-import Download from "./routes/dashboard_routes/download";
 import Dashboard from "./routes/dashboard";
 import Login from "./routes/login";
-import Info from "./routes/dashboard_routes/info";
 import MyProfile from "./routes/myProfile";
+import Download from "./routes/download";
+import Sobre from "./routes/sobre";
 
 const username = localStorage.getItem("name");
 
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "/download",
         element: <Download />,
+      },
+      {
+        path: "/sobre",
+        element: <Sobre />,
       },
       username !== null && {
         path: "/myprofile",
@@ -55,10 +59,6 @@ const router = createBrowserRouter([
       {
         path: `/dashboard/${username !== "" && username}/table`,
         element: <Table />,
-      },
-      {
-        path: `/dashboard/${username !== "" && username}/info`,
-        element: <Info />,
       },
     ],
   },
