@@ -75,8 +75,8 @@ function Login() {
               MoreLife
             </Link>
             <p>
-              O MoreLife ajuda voce a melhorar sua saude enquanto escutamos cada
-              batimento do seu coracao
+              O MoreLife ajuda você a melhorar sua saúde enquanto escutamos cada
+              batimento do seu coração.
             </p>
           </div>
           <div className={styles.formcad}>

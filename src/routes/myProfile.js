@@ -39,7 +39,7 @@ function MyProfile() {
 
   function close() {
     localStorage.clear();
-    navigate("/");
+    navigate("/login");
     return window.location.reload();
   }
 
