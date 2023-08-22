@@ -15,11 +15,14 @@ import { FaUserEdit } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
+import { FaPencilAlt } from "react-icons/fa";
+
 import ListItem from "../components/layout/listItem";
 import FormPerson from "../components/profileForms/formPerson";
 import FormAccount from "../components/profileForms/formAccount";
 import FormResp from "../components/profileForms/formResp";
 import CardRespon from "../components/dashboard/cardRespon";
+import Button from "../components/layout/button";
 
 function MyProfile() {
   const [user, setUser] = useState({});
@@ -114,6 +117,7 @@ function MyProfile() {
             <div className={styles.name}>
               <h1>
                 {user.nm_user} {user.nm_sbuser}, {user.nb_ageuser}
+                <button className={styles.btnEdit} onClick={() => showSlides(2)}> <FaPencilAlt/> </button>
               </h1>
               <h3>{user.nm_email}</h3>
               <h4>{user?.user_sexo?.nm_sexo}</h4>
