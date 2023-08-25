@@ -1,0 +1,20 @@
+.sobreContainer{
+    margin:2.5% 10%;
+}
+
+.contentLado{
+    margin-top: 20px;
+    display: flex;
+}
+
+.imgMoreLife{
+    border-radius: 10px;
+    width: 50%;
+    box-shadow: 2px 2px 4px 4px rgba(0,0,0,0.2);
+    object-fit: cover;
+}
+
+.textLado{
+    font-size: 24px;
+    margin-left: 20px;
+}
