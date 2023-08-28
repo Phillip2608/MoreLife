@@ -1,9 +1,13 @@
-function ErrorPage(){
-    if(localStorage.getItem("name")){
-        window.location.reload()
-        return false
-    }
-    return <h1>Error</h1>
+import styles from "./cssRoutes/errorPage.module.css";
+
+function ErrorPage() {
+  return (
+    <div className={styles.container}>
+      <h1>
+        Ocorreu um problema inesperado, atualize a pagina ou volte mais tarde!
+      </h1>
+    </div>
+  );
 }
 
-export default ErrorPage
+export default ErrorPage;

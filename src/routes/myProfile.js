@@ -13,7 +13,6 @@ import {
 import { FaUser } from "react-icons/fa";
 import { FaUserEdit } from "react-icons/fa";
 import { FaUserPlus } from "react-icons/fa";
-import { FaUserCog } from "react-icons/fa";
 import { FaDoorOpen } from "react-icons/fa";
 import { FaPencilAlt } from "react-icons/fa";
 
@@ -22,7 +21,6 @@ import FormPerson from "../components/profileForms/formPerson";
 import FormAccount from "../components/profileForms/formAccount";
 import FormResp from "../components/profileForms/formResp";
 import CardRespon from "../components/dashboard/cardRespon";
-import Button from "../components/layout/button";
 
 function MyProfile() {
   const [user, setUser] = useState({});
@@ -97,11 +95,6 @@ function MyProfile() {
           text="Adicionar Responsável"
           icon={<FaUserPlus />}
           handleClick={() => showSlides(3)}
-        />
-        <ListItem
-          text="Configurações"
-          icon={<FaUserCog />}
-          handleClick={() => showSlides(4)}
         />
         <ListItem
           text="Sair"
@@ -197,7 +190,6 @@ function MyProfile() {
             </div>
           )}
         </div>
-        <div className={`${styles.contentUser} ${styles.fade}`}>config</div>
       </div>
     </div>
   );
