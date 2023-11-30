@@ -110,7 +110,13 @@ function MyProfile() {
             <div className={styles.name}>
               <h1>
                 {user.nm_user} {user.nm_sbuser}, {user.nb_ageuser}
-                <button className={styles.btnEdit} onClick={() => showSlides(2)}> <FaPencilAlt/> </button>
+                <button
+                  className={styles.btnEdit}
+                  onClick={() => showSlides(2)}
+                >
+                  {" "}
+                  <FaPencilAlt />{" "}
+                </button>
               </h1>
               <h3>{user.nm_email}</h3>
               <h4>{user?.user_sexo?.nm_sexo}</h4>

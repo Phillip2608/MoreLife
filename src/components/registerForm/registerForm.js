@@ -4,8 +4,6 @@ import styles from "./cssRegister/registerForm.module.css";
 import { useEffect, useState } from "react";
 
 //imports react-routers-dom
-import { Link } from "react-router-dom";
-
 import { getData } from "../../services/FirebaseConfig";
 
 //Importando components
@@ -19,7 +17,7 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
   const [user, setUser] = useState(userData || []);
   const [message, setMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
-  const [confPass, setConfPass] = useState([])
+  const [confPass, setConfPass] = useState([]);
   let email = "";
 
   const regexEmail = /\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*/;
@@ -27,23 +25,23 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
 
   useEffect(() => {
     getData("tb_sexo", (snapshot) => {
-        setSexo([])
-        const data = snapshot.val()
-        if(data !== null){
-            Object.values(data).map(sexo => {
-                return setSexo(sexos => [...sexos, sexo])
-            })
-        }
-    })
+      setSexo([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((sexo) => {
+          return setSexo((sexos) => [...sexos, sexo]);
+        });
+      }
+    });
     getData("tb_user", (snapshot) => {
-        setAllUsers([])
-        const data = snapshot.val()
-        if(data !== null){
-            Object.values(data).map(user => {
-                return setAllUsers(allUser => [...allUser, user])
-            })
-        }
-    })
+      setAllUsers([]);
+      const data = snapshot.val();
+      if (data !== null) {
+        Object.values(data).map((user) => {
+          return setAllUsers((allUser) => [...allUser, user]);
+        });
+      }
+    });
   }, []);
 
   function validateForm(user) {
@@ -90,7 +88,9 @@ function RegisterForm({ handleSubmit, btnText, userData }) {
 
     allUsers.map((allUser) => {
       if (allUser.nm_email === user.nm_email) {
-        email = allUser.nm_email;
+        return (email = allUser.nm_email);
+      } else {
+        return null;
       }
     });
     if (email === user.nm_email) {

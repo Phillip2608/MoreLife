@@ -21,7 +21,6 @@ function NavBar() {
       <ul>
         <NavLink text="Download" to="/download" />
         <NavLink text="Sobre" to="/sobre" />
-        {id !== null ? <NavLink text="Dashboard" /> : ""}
         {id !== null ? (
           <NavLink text="Meu Perfil" to="/myprofile" />
         ) : (
